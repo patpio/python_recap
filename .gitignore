@@ -1,2 +1,4 @@
 .idea
 *.pyc
+migrations
+python_recap/python_recap.db
