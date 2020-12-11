@@ -9,6 +9,9 @@
   <div class="form-group">
       {{ form.username.label }}
       {{ form.username (class="form-control") }}
+            {% for error in form.username.errors %} # TODO check
+        {{ error }}
+      {% endfor %}
   </div>
 
   <div class="form-group">

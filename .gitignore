@@ -2,3 +2,4 @@
 *.pyc
 migrations
 python_recap/python_recap.db
+python_recap/config.py

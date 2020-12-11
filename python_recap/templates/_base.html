@@ -8,6 +8,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}{% endblock %}
 </head>
 <body>
 
@@ -71,6 +72,16 @@
         </div>
     </div>
 </nav>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            {% include '_flash.html' %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endwith %}
 
 <div class="container">
 

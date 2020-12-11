@@ -1,4 +1,4 @@
-from flask import Blueprint, url_for, render_template, request
+from flask import Blueprint, url_for, render_template, request, flash
 from flask_login import login_user, logout_user
 from werkzeug.utils import redirect
 
@@ -27,7 +27,8 @@ def login():
         user = User.get_by_username(form.username.data)
         if user is not None and user.check_password(form.password.data):
             login_user(user, form.remember_me.data)
-            return redirect(request.args.get('next') or url_for('main.home'))
+            flash(f'Logged in successfully as {user.username}')
+            return redirect(request.args.get('next') or url_for('users.user', username=user.username))
     return render_template('login.html', form=form)
 
 
