@@ -20,10 +20,12 @@ def create_app():
     from .views import bp_main
     from .views import bp_flashcard
     from .views import bp_auth
+    from .views import bp_user
 
     python_recap.register_blueprint(bp_main)
     python_recap.register_blueprint(bp_flashcard)
     python_recap.register_blueprint(bp_auth)
+    python_recap.register_blueprint(bp_user)
 
     db.init_app(python_recap)
     Migrate(python_recap, db)
