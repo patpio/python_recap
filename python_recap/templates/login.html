@@ -6,15 +6,12 @@
 
 {% block content %}
 
-<form action="" method="post">
+<form action="" method="post" class="was-validated" novalidate>
     {{ form.hidden_tag() }}
     
-{{ form_field(form.username) }}
+    {{ form_field(form.username) }}
 
-  <div class="form-group">
-      {{ form.password.label }}
-      {{ form.password (class="form-control") }}
-  </div>
+    {{ form_field(form.password) }}
 
   <div class="form-group">
       {{ form.remember_me.label }}
